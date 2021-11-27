@@ -1,6 +1,8 @@
 .App {
   height: 100vh;
-  background-color: #1a202c;
+  background: #0f0c29;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   overflow: scroll;
   text-align: center;
 }
@@ -69,11 +71,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
   width: 100%;
   bottom: 0;
   left: 0;
-  padding-bottom: 45px;
+  padding: 30px 0px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .twitter-logo {
@@ -82,6 +86,7 @@
 }
 
 .footer-text {
+  margin: 0px 4px;
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -89,8 +94,8 @@
 
 .gif-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-  grid-gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 1rem;
   justify-items: center;
   margin: 0;
   padding: 0;
@@ -102,13 +107,66 @@
   position: relative;
   justify-self: center;
   align-self: center;
+  overflow: hidden;
+  width: 100%;
 }
 
 .gif-item img {
   width: 100%;
-  height: 300px;
+  height: 250px;
   border-radius: 10px;
   object-fit: cover;
+}
+
+.gif-item .address {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 5px 10px;
+  font-size: 12px;
+  color: white;
+  left: 50%;
+  bottom: 0;
+  transform: translateY(100%) translateX(-50%);
+  transition: transform .3s ease;
+}
+
+.gif-item:hover .address {
+  transform: translateY(0) translateX(-50%);
+}
+
+.gif-item .btn-like {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  right: 14px;
+  top: 14px;
+  transform: translateX(140%);
+  transition: transform .3s ease;
+}
+
+.gif-item:hover .btn-like {
+  transform: translateX(0);
+}
+
+.gif-item .likes {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20%;
+  padding: 10px;
+  font-size: 16px;
+  color: white;
+  left: 14px;
+  top: 14px;
+  transform: translateX(-130%);
+  transition: transform .3s ease;
+}
+
+.gif-item:hover .likes {
+  transform: translateX(0);
 }
 
 .connected-container input[type='text'] {

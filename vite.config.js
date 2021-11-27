@@ -1,4 +1,5 @@
 import reactRefresh from '@vitejs/plugin-react-refresh'
+import inject from '@rollup/plugin-inject';
 
 /**
  * https://vitejs.dev/config/
@@ -11,5 +12,10 @@ export default {
     hmr: {
       port: 443,
     }
-  }
+  },
+  build: {
+      rollupOptions: {
+          plugins: [inject({ Buffer: ['buffer', 'Buffer'] })],
+      },
+  },
 }
